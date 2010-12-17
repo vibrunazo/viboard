@@ -1,7 +1,6 @@
 package com.vibrunazo.viboard.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -22,7 +21,7 @@ public class Viboard implements EntryPoint {
 		
 		
 		Game newGame = new Game(gamePanel);		
-		newGame.show();
+		newGame.start();
 		
 		someLabel.setText("Some text here");
 
