@@ -6,15 +6,6 @@
 <web-app>
   
   <!-- Servlets -->
-  <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.vibrunazo.viboard.server.GreetingServiceImpl</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/viboard/greet</url-pattern>
-  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
