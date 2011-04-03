@@ -12,7 +12,7 @@ public class Game {
 	private Label alabel = new Label();
 	private int gameType = 0;
 	private int turn = 0;
-	private String action = "";
+	private Action action;
 	private Player[] players = new Player[2];
 
 	public Game(VerticalPanel panel) {
@@ -28,7 +28,7 @@ public class Game {
 
 	private void ini() {
 		turn = 1;
-		action = "new";
+		
 		
 		players[0] = new Player("Player 1", "mouse");
 		players[1] = new Player("Player 2", "mouse");
@@ -72,10 +72,15 @@ public class Game {
 		if (gameType == 0) {
 			// turn based game
 			if (turn == 1) {
-				doAction(action);
+				String unit = "X";
+				action = new Action("new", gameGrid);
+				action.newUnit(unit, cell, row);
 				turn = 2;
 			}
 			else {
+				String unit = "O";
+				action = new Action("new", gameGrid);
+				action.newUnit(unit, cell, row);
 				turn = 1;
 			}
 		}
@@ -90,13 +95,5 @@ public class Game {
 //		}
 	}
 
-	private void doAction(String action) {
-		// do an action from the action String field variable
-		if (action == "new") {
-			
-		}
-		
-	}
-
-
+	
 }
