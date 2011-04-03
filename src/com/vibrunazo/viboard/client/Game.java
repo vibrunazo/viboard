@@ -10,16 +10,29 @@ public class Game {
 	private VerticalPanel panel;
 	private Grid gameGrid = new Grid(3, 3);
 	private Label alabel = new Label();
-	private Boolean turn = false;
+	private int gameType = 0;
+	private int turn = 0;
+	private String action = "";
+	private Player[] players = new Player[2];
 
 	public Game(VerticalPanel panel) {
 		this.panel = panel;
 	}
 
 	public void start() {
+		ini();
 		show();
 		mouseListen();
 
+	}
+
+	private void ini() {
+		turn = 1;
+		action = "new";
+		
+		players[0] = new Player("Player 1", "mouse");
+		players[1] = new Player("Player 2", "mouse");
+		
 	}
 
 	private void show() {	
@@ -41,7 +54,7 @@ public class Game {
 	}
 
 	private void mouseListen() {
-		// Listen for mouse events on the Add button.
+		// Listen for mouse events
 		gameGrid.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				mouseClicked(event);
@@ -56,14 +69,33 @@ public class Game {
 
 		alabel.setText(cell+", "+row);
 		
-		if (!turn) {
-			gameGrid.setText(row, cell, "X");
-			turn = true;
+		if (gameType == 0) {
+			// turn based game
+			if (turn == 1) {
+				doAction(action);
+				turn = 2;
+			}
+			else {
+				turn = 1;
+			}
 		}
-		else {
-			gameGrid.setText(row, cell, "O");
-			turn = false;
+		
+//		if (!turn) {
+//			gameGrid.setText(row, cell, "X");
+//			turn = true;
+//		}
+//		else {
+//			gameGrid.setText(row, cell, "O");
+//			turn = false;
+//		}
+	}
+
+	private void doAction(String action) {
+		// do an action from the action String field variable
+		if (action == "new") {
+			
 		}
+		
 	}
 
 
